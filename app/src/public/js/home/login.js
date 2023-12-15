@@ -9,9 +9,16 @@ loginBtn.addEventListener("click", login);
 const login = () => {
   const req = {
     id: id.value,
-    psword: password.value,
+    pwd: password.value,
   };
-  console.log(req);
+  
+  fetch('/login', {
+    method: "POST",
+    header: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(req),
+  })
 }
 
 
